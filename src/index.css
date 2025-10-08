@@ -1,0 +1,40 @@
+ @import "tailwindcss";
+ 
+ body {
+    /* background: linear-gradient(145deg, #1e2024, #23272b); */
+    /* background: linear-gradient(145deg, #75a0f7, #f6f7f8); */
+    /* background: linear-gradient(135deg, #a1c4fd, #c2e9fb); */
+overflow-x: hidden;
+
+  /* font-family: 'Poppins', sans-serif; */
+  font-family:serif;
+
+ 
+
+    /* background: linear-gradient(145deg, #75a0f7, #f6f7f8); */
+
+    
+    text-transform: capitalize;
+    
+} 
+ 
+ 
+
+/* 
+  <button className="
+  text-[#090909] 
+  px-[1.7em] py-[0.7em] 
+  text-[18px] 
+  rounded-md 
+  bg-[#e8e8e8] 
+  cursor-pointer 
+  border border-[#e8e8e8] 
+  transition-all duration-300 
+  shadow-[6px_6px_12px_#c5c5c5,-6px_-6px_12px_#ffffff]
+  hover:border-white 
+  focus:border-white 
+  active:shadow-[4px_4px_12px_#c5c5c5,-4px_-4px_12px_#ffffff]
+  focus:shadow-[4px_4px_12px_#c5c5c5,-4px_-4px_12px_#ffffff]
+">
+  Tap or Hover Me
+</button> */
