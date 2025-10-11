@@ -1,5 +1,8 @@
- import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+ import React, { useRef, useEffect } from 'react';
+ import LocomotiveScroll from "locomotive-scroll";
+import "locomotive-scroll/dist/locomotive-scroll.css";
+import { Route, Routes, useLocation } from 'react-router-dom';
+//components
 import NAV from './components/NAV';
 import HeroSec from './components/HeroSec';
 import Feautures from './components/Feautures';
@@ -18,6 +21,28 @@ import 'react-toastify/dist/ReactToastify.css';
 import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
+   const scrollRef = useRef(null);
+  const scrollInstance = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!scrollInstance.current) {
+      scrollInstance.current = new LocomotiveScroll({
+        el: scrollRef.current,
+        smooth: true,
+        lerp: 0.01,
+        smartphone: {
+          smooth: true,
+        },
+        tablet: {
+          smooth: true,
+        },
+      });
+    } else {
+      scrollInstance.current.update();
+    }
+  }, [location]);
+
   return (
     <div className="flex flex-col md:flex-row overflow-x-hidden">
       <NAV />
@@ -27,7 +52,8 @@ const App = () => {
         {/* 👇 ScrollToTop component yahan add karo */}
         <ScrollToTop />
 
-        <Routes>
+       <div ref={scrollRef}>
+         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/herosec" element={<HeroSec />} />
           <Route path="/resume" element={<Resume />} />
@@ -39,6 +65,7 @@ const App = () => {
           <Route path="/certifications" element={<Certification />} />
           <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
+       </div>
       </div>
     </div>
   );
