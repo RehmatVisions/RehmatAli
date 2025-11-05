@@ -1,7 +1,8 @@
  import React, { useRef, useEffect } from 'react';
- import LocomotiveScroll from "locomotive-scroll";
-import "locomotive-scroll/dist/locomotive-scroll.css";
+import LocomotiveScroll from 'locomotive-scroll';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
+
 //components
 import NAV from './components/NAV';
 import HeroSec from './components/HeroSec';
@@ -16,12 +17,10 @@ import Home from './components/Home';
 import Chatbot from './components/Chatbot';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-// 👇 ScrollToTop import karo
 import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
-   const scrollRef = useRef(null);
+  const scrollRef = useRef(null);
   const scrollInstance = useRef(null);
   const location = useLocation();
 
@@ -30,17 +29,26 @@ const App = () => {
       scrollInstance.current = new LocomotiveScroll({
         el: scrollRef.current,
         smooth: true,
-        lerp: 0.1,
+        // fast, premium feel
+        lerp: 0.06,
+        multiplier: 1, // speed multiplier
+        class: 'is-revealed',
         smartphone: {
           smooth: true,
+          lerp: 0.06,
         },
         tablet: {
           smooth: true,
+          lerp: 0.06,
         },
       });
     } else {
       scrollInstance.current.update();
     }
+
+    return () => {
+      if (scrollInstance.current) scrollInstance.current.destroy();
+    };
   }, [location]);
 
   return (
@@ -48,12 +56,11 @@ const App = () => {
       <NAV />
       <ToastContainer position="top-right" autoClose={400} />
 
-      <div className="w-full overflow-x-hidden md:ml-[19vw] md:w-[81vw]">
-        {/* 👇 ScrollToTop component yahan add karo */}
+      <div className="w-full overflow-x-hidden md:ml-[19vw] md:w-[81vw]" ref={scrollRef}>
+        {/* ScrollToTop ensures route changes scroll to top */}
         <ScrollToTop />
 
-       <div ref={scrollRef}>
-         <Routes>
+        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/herosec" element={<HeroSec />} />
           <Route path="/resume" element={<Resume />} />
@@ -65,7 +72,6 @@ const App = () => {
           <Route path="/certifications" element={<Certification />} />
           <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
-       </div>
       </div>
     </div>
   );
