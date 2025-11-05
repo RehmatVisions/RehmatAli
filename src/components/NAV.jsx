@@ -24,7 +24,7 @@ const NAV = () => {
           <img
             src={rehmat}
             alt="Menu"
-            className="h-14 w-14 rounded-full border-2 border-[#9A48D0] 
+            className="h-14 w-14 z-50 rounded-full border-2 border-[#9A48D0] 
               hover:border-[#67f567] transition-all duration-300 
               shadow-lg hover:shadow-[#67f567]/50"
           />

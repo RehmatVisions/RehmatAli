@@ -30,7 +30,7 @@ const App = () => {
       scrollInstance.current = new LocomotiveScroll({
         el: scrollRef.current,
         smooth: true,
-        lerp: 0.01,
+        lerp: 0.1,
         smartphone: {
           smooth: true,
         },
@@ -46,7 +46,7 @@ const App = () => {
   return (
     <div className="flex flex-col md:flex-row overflow-x-hidden">
       <NAV />
-      <ToastContainer position="top-right" autoClose={4000} />
+      <ToastContainer position="top-right" autoClose={400} />
 
       <div className="w-full overflow-x-hidden md:ml-[19vw] md:w-[81vw]">
         {/* 👇 ScrollToTop component yahan add karo */}
