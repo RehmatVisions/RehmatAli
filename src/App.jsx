@@ -3,7 +3,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
-//components
+// Components
 import NAV from './components/NAV';
 import HeroSec from './components/HeroSec';
 import Feautures from './components/Feautures';
@@ -25,29 +25,36 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Only initialize once
     if (!scrollInstance.current) {
       scrollInstance.current = new LocomotiveScroll({
         el: scrollRef.current,
         smooth: true,
-        // fast, premium feel
-        lerp: 0.06,
-        multiplier: 1, // speed multiplier
+        multiplier: 1, // normal speed
+        lerp: 0.08, // slightly faster, smoother feel
         class: 'is-revealed',
+        getDirection: true,
         smartphone: {
           smooth: true,
-          lerp: 0.06,
+          multiplier: 1,
+          lerp: 0.08,
         },
         tablet: {
           smooth: true,
-          lerp: 0.06,
+          multiplier: 1,
+          lerp: 0.08,
         },
+        reloadOnContextChange: true, // helps when route changes
+        inertia: 0.9,
       });
     } else {
+      // Update only if necessary
       scrollInstance.current.update();
     }
 
     return () => {
       if (scrollInstance.current) scrollInstance.current.destroy();
+      scrollInstance.current = null;
     };
   }, [location]);
 
@@ -56,8 +63,7 @@ const App = () => {
       <NAV />
       <ToastContainer position="top-right" autoClose={400} />
 
-      <div className="w-full overflow-x-hidden md:ml-[19vw] md:w-[81vw]" ref={scrollRef}>
-        {/* ScrollToTop ensures route changes scroll to top */}
+      <div className="w-full md:ml-[19vw] md:w-[81vw]" ref={scrollRef}>
         <ScrollToTop />
 
         <Routes>
