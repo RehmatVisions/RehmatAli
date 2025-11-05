@@ -1,7 +1,5 @@
- import React, { useRef, useEffect } from 'react';
-import LocomotiveScroll from 'locomotive-scroll';
-import 'locomotive-scroll/dist/locomotive-scroll.css';
-import { Route, Routes, useLocation } from 'react-router-dom';
+ import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 // Components
 import NAV from './components/NAV';
@@ -15,55 +13,23 @@ import ResumeSkills from './components/ResumeSkills';
 import Certification from './components/Certification';
 import Home from './components/Home';
 import Chatbot from './components/Chatbot';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import ScrollToTop from './components/ScrollToTop';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './index.css'; // Make sure scroll-smooth is applied globally
+
 const App = () => {
-  const scrollRef = useRef(null);
-  const scrollInstance = useRef(null);
-  const location = useLocation();
-
-  useEffect(() => {
-    // Only initialize once
-    if (!scrollInstance.current) {
-      scrollInstance.current = new LocomotiveScroll({
-        el: scrollRef.current,
-        smooth: true,
-        multiplier: 1, // normal speed
-        lerp: 0.08, // slightly faster, smoother feel
-        class: 'is-revealed',
-        getDirection: true,
-        smartphone: {
-          smooth: true,
-          multiplier: 1,
-          lerp: 0.08,
-        },
-        tablet: {
-          smooth: true,
-          multiplier: 1,
-          lerp: 0.08,
-        },
-        reloadOnContextChange: true, // helps when route changes
-        inertia: 0.9,
-      });
-    } else {
-      // Update only if necessary
-      scrollInstance.current.update();
-    }
-
-    return () => {
-      if (scrollInstance.current) scrollInstance.current.destroy();
-      scrollInstance.current = null;
-    };
-  }, [location]);
-
   return (
-    <div className="flex flex-col md:flex-row overflow-x-hidden">
+    <div className="flex flex-col md:flex-row overflow-x-hidden scroll-smooth">
+      {/* Navbar */}
       <NAV />
+
+      {/* Toast notifications */}
       <ToastContainer position="top-right" autoClose={400} />
 
-      <div className="w-full md:ml-[19vw] md:w-[81vw]" ref={scrollRef}>
+      {/* Main Content */}
+      <div className="w-full md:ml-[19vw] md:w-[81vw]">
         <ScrollToTop />
 
         <Routes>
