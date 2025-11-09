@@ -75,8 +75,8 @@ const NAV = () => {
           {/* Nav Links */}
           <div className="flex flex-col text-md font-medium">
             <Link to="/" className={cardStyle}>Home</Link>
-            <Link to="/skills" className={cardStyle}>Skills</Link>
             <Link to="/resume" className={cardStyle}>Resume</Link>
+            <Link to="/skills" className={cardStyle}>Skills</Link>
             <Link to="/testimonials" className={cardStyle}>Testimonials</Link>
             <Link to="/features" className={cardStyle}>Features</Link>
             <Link to="/projects" className={cardStyle}>Projects</Link>

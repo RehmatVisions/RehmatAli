@@ -36,15 +36,17 @@ const Resume = () => {
         <button onClick={() => setActiveTab('education')} className={getButtonStyle('education')}>
           EDUCATION
         </button>
+
         <button onClick={() => setActiveTab('skills')} className={getButtonStyle('skills')}>
           PROFESSIONAL SKILLS
-        </button>
-        <button onClick={() => setActiveTab('certifications')} className={getButtonStyle('certifications')}>
-          CERTIFICATIONS
         </button>
         <button onClick={() => setActiveTab('experience')} className={getButtonStyle('experience')}>
           EXPERIENCE
         </button>
+        <button onClick={() => setActiveTab('certifications')} className={getButtonStyle('certifications')}>
+          CERTIFICATIONS
+        </button>
+        
       </div>
 
       {/* Tab Content */}

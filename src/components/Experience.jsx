@@ -1,8 +1,8 @@
  import React from 'react';
 import ResCard from './subcomponents/ResCard';
-import frontend from '../images/front.jpeg';
-import ui from '../images/ui.jpeg';
-import projects from '../images/porject.jpeg';
+import CodeCelix from '../images/codecelix_logo.jpg';
+import fiverr from '../images/fiverr.jpg';
+import Developershub from '../images/developershub.jpg';
 
 const Experience = () => {
   return (
@@ -11,28 +11,28 @@ const Experience = () => {
       <div className="flex flex-col md:flex-row md:flex-wrap gap-6 justify-center items-center">
         
         <ResCard 
-          img={frontend}
-          heading="Frontend Development Experience – Self Projects"
-          date="2024 – Present"
-          ins="React.js, Tailwind CSS, Many HTML, CSS Templates, Fetch APIs"
+          img={CodeCelix}
+          heading="Intern Web Developer (Full_Stack)"
+          date="MONGODB ,  EXPRESSJS  ,  REACTJS ,  NODEJS"
+          ins="CodeCelix OCT_2025 Current"
           desc="Built multiple frontend projects through self-learning, including weather apps, CRUD systems, shopping cart clones, and portfolio websites. Focused on mastering React fundamentals, responsive UI with Tailwind CSS, and using public APIs to simulate real-world use cases."
         />
 
         <ResCard 
-          img={projects}
-          heading="React Practice Projects"
-          date="2024"
-          ins="Portfolio, Weather App, Eduisty, Gotto, StreamLabs, Fastfood_Web"
+          img={Developershub}
+          heading="Intern FullStack Developer"
+          date="MONGODB ,  EXPRESSJS  ,  REACTJS ,  NODEJS"
+          ins="DevelopersHub Corporation© Nov_2025 Current"
           desc="Completed multiple hands-on projects to strengthen frontend development skills. These projects include real-life scenarios such as user authentication, state management, responsive layouts, and API consumption."
         />
 
-        <ResCard 
-          img={ui}
-          heading="UI/UX Experience with Tailwind CSS"
-          date="2024"
-          ins="Tailwind, Responsive Design, Animated"
-          desc="Focused on building attractive and responsive UIs using Tailwind CSS. Created dark/light toggles, reusable components, animations, and grid/flex-based layouts for multiple apps and websites."
-        />
+       <ResCard 
+  img={fiverr}                          // Project ya skill ka image
+  heading="FreeLance Web Developer" // Role/Title
+  date="Tailwind, Responsive Design, Animated"                        // Year
+  ins="Fiverr_2025" // Skills/Tools used
+  desc="Focused on building attractive and responsive UIs using Tailwind CSS. Created dark/light toggles, reusable components, animations, and grid/flex-based layouts for multiple apps and websites."
+/>
 
       </div>
     </div>

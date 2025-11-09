@@ -16,11 +16,11 @@ const Home = () => {
         <div>   
           
           <HeroSec />
-          
+             <Resume />
            <Feautures /> 
        
              <Projects /> 
-                <Resume /> 
+              
                  {/* <ResumeSkills />  */}
               <Testimonials /> 
                
