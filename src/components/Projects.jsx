@@ -6,10 +6,10 @@ import weather from '../images/weather.png';
 import koad from '../images/koad.png';
 import portfolio from '../images/Screenshot 2025-07-14 230310.png';
 import Heading from './subcomponents/Heading';
-import Medtracker from '../images/Medtracker.jpg';
-import graphic from '../images/graphic.png'
-import asia from '../images/asia.png'
-import interview from '../images/interview.png'
+import Medtracker from '../images/MedTracker.jpg';
+import graphic from '../images/Graphic.png';
+import asia from '../images/asia.png';
+import interview from '../images/interview.png';
 const projectsData = [
   {
     id: 1,
