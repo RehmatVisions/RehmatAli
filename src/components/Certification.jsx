@@ -4,6 +4,8 @@ import navttac from '../images/nsis.png';
 import CertificateCard from './subcomponents/CertificateCard';
 
 const Certification = () => {
+  const aosAnimations = ['fade-right', 'fade-left'];
+  
   const certifications = [
     {
       img: zeff,
@@ -33,6 +35,9 @@ const Certification = () => {
         {certifications.map((cert, index) => (
           <motion.div
             key={index}
+            data-aos={aosAnimations[index % aosAnimations.length]}
+            data-aos-duration="1000"
+            data-aos-delay={index * 150}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.03 }}
@@ -85,8 +90,12 @@ const Certification = () => {
         ))}
       </div>
       <div className='flex flex-wrap justify-around'>
-        <CertificateCard imageSrc={'/certificate.png'} downloadName={'certificate.jpg'} title={'Zaff_Certificate'} />
-        <CertificateCard imageSrc={'/comingsoon.jpg'} downloadName={'certificate.jpg'} title={'NAVTTC_Certificate'} />
+        <div data-aos="flip-left" data-aos-duration="1000" data-aos-delay="300">
+          <CertificateCard imageSrc={'/certificate.png'} downloadName={'certificate.jpg'} title={'Zaff_Certificate'} />
+        </div>
+        <div data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+          <CertificateCard imageSrc={'/comingsoon.jpg'} downloadName={'certificate.jpg'} title={'NAVTTC_Certificate'} />
+        </div>
       </div>
     </motion.div>
   );

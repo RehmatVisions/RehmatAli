@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
 import Heading from './subcomponents/Heading';
 import ResumeEducation from './ResumeEducation';
 import ResumeSkills from './ResumeSkills';
@@ -21,18 +20,14 @@ const Resume = () => {
      }`;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, rotateY: -8 }}
-      whileInView={{ opacity: 1, rotateY: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      viewport={{ once: true, amount: 0.2 }}
-      className="bg-white text-gray-800 py-4 px-4 sm:px-8"
-    >
+    <div className="bg-white text-gray-800 py-4 px-4 sm:px-8">
       {/* Heading */}
-      <Heading sub="As a MernStack Developer" title="My Resume" />
+      <div data-aos="zoom-in" data-aos-duration="1000">
+        <Heading sub="As a MernStack Developer" title="My Resume" />
+      </div>
 
       {/* Tabs */}
-      <div className="flex flex-wrap  justify-center py-10">
+      <div className="flex flex-wrap justify-center py-10" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
         <button onClick={() => setActiveTab('education')} className={getButtonStyle('education')}>
           EDUCATION
         </button>
@@ -46,7 +41,6 @@ const Resume = () => {
         <button onClick={() => setActiveTab('certifications')} className={getButtonStyle('certifications')}>
           CERTIFICATIONS
         </button>
-        
       </div>
 
       {/* Tab Content */}
@@ -56,8 +50,7 @@ const Resume = () => {
         {activeTab === 'certifications' && <Certification />}
         {activeTab === 'experience' && <Experience />}
       </div>
-      
-    </motion.div>
+    </div>
   );
 };
 

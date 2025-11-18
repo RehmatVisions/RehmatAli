@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import {
   FaMobileAlt,
   FaLaptopCode,
@@ -12,6 +13,12 @@ import {
 } from "react-icons/fa";
 
 const Feautures = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.AOS) {
+      window.AOS.refresh();
+    }
+  }, []);
+
   const features = [
     {
       icon: <FaMobileAlt className="text-[#34d399]" />,
@@ -62,88 +69,133 @@ const Feautures = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, rotateY: -8 }}
-      whileInView={{ opacity: 1, rotateY: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       viewport={{ once: true, amount: 0.2 }}
-      className='mt-10 px-8 text-gray-900'
+      className='mt-10 px-4 sm:px-6 lg:px-8 py-12 text-gray-900'
     >
-      <div className='ml-7'>
-        <h3 className='text-[#ff014f] text-2xl'>FEATURES</h3>
-        <h1 className='text-6xl font-bold py-7 bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text'>
-          WHAT I OFFER
+      {/* Enhanced Heading Section */}
+      <div className='text-center mb-16' data-aos="zoom-in" data-aos-duration="800">
+        <div className='inline-block'>
+          <span className='text-sm sm:text-base font-bold tracking-[0.3em] uppercase 
+                          bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text
+                          relative font-["Poppins",sans-serif]
+                          after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 
+                          after:bg-gradient-to-r after:from-purple-600 after:to-pink-500'>
+            FEATURES
+          </span>
+        </div>
+        
+        <h1 
+          data-aos="zoom-in-up" 
+          data-aos-duration="1000" 
+          data-aos-delay="200"
+          className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mt-6 mb-6
+                     bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 
+                     text-transparent bg-clip-text
+                     drop-shadow-[0_2px_10px_rgba(147,51,234,0.3)]
+                     font-["Montserrat",sans-serif] tracking-tight'>
+          What I Offer
         </h1>
+
+        <p
+          data-aos="zoom-in" 
+          data-aos-duration="800" 
+          data-aos-delay="400"
+          className='text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto font-["Inter",sans-serif] leading-relaxed'>
+          Delivering modern, scalable, and high-performance web solutions
+        </p>
       </div>
 
+      {/* Cards Section */}
       <div className='All-cards'>
-        <motion.div
-          className='flex items-center justify-center lg:justify-around py-3 flex-wrap gap-6 transform-gpu'
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{ hidden: { opacity: 1 }, show: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
-        >
-          {features.map((feature, index) => (
+        <div className='flex items-center justify-center py-6 flex-wrap gap-8 sm:gap-10 lg:gap-12'>
+          {features.map((feature, index) => {
+            const aosAnimations = [
+              'zoom-in',
+              'flip-up',
+              'fade-up',
+              'fade-down',
+              'flip-left',
+              'flip-right',
+              'zoom-in-up',
+              'zoom-in-down',
+              'slide-up'
+            ];
+            const aosAnimation = aosAnimations[index % aosAnimations.length];
+            
+            return (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -16, y: 16 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-              viewport={{ once: true, amount: 0.2 }}
-              className="w-full sm:w-[300px] flex justify-center py-3 group"
+              data-aos={aosAnimation}
+              data-aos-duration="1000"
+              data-aos-delay={index * 100}
+              whileHover={{ scale: 1.08, rotate: 3 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="group relative"
             >
               <div
                 tabIndex={0}
-                className="
-                  relative overflow-hidden
-                  h-76 w-full rounded-lg bg-white text-gray-800
-                  shadow-[6px_6px_10px_-1px_rgba(0,0,0,0.15),-6px_-6px_10px_-1px_rgba(255,255,255,0.7)]
-                  border border-transparent
-                  transition-all duration-500 ease-out
-                  hover:brightness-110 focus:brightness-110
-                  hover:-translate-y-2 focus:-translate-y-2
-                  hover:scale-105 focus:scale-105
-                  hover:shadow-[inset_4px_4px_6px_-1px_rgba(0,0,0,0.2),inset_-4px_-4px_6px_-1px_rgba(255,255,255,0.7),0_0_20px_rgba(147,51,234,0.4),0_0_40px_rgba(236,72,153,0.2)]
-                  focus:shadow-[inset_4px_4px_6px_-1px_rgba(0,0,0,0.2),inset_-4px_-4px_6px_-1px_rgba(255,255,255,0.7),0_0_20px_rgba(147,51,234,0.4),0_0_40px_rgba(236,72,153,0.2)]
-                  hover:border-purple-200 focus:border-purple-200
-                  outline-none
-                  before:absolute before:inset-0 before:bg-gradient-to-br before:from-purple-500/5 before:via-transparent before:to-pink-500/5
-                  before:opacity-0 before:transition-opacity before:duration-500
-                  hover:before:opacity-100 focus:before:opacity-100
-                "
+                className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 
+                           rounded-full bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100
+                           flex flex-col items-center justify-center p-4 sm:p-6
+                           shadow-[0_8px_30px_rgba(147,51,234,0.3)]
+                           border-4 border-white
+                           transition-all duration-500 ease-out
+                           hover:shadow-[0_15px_50px_rgba(147,51,234,0.5),0_0_30px_rgba(236,72,153,0.4)]
+                           focus:shadow-[0_15px_50px_rgba(147,51,234,0.5),0_0_30px_rgba(236,72,153,0.4)]
+                           hover:border-purple-300 focus:border-purple-300
+                           outline-none cursor-pointer
+                           before:absolute before:inset-0 before:rounded-full
+                           before:bg-gradient-to-br before:from-purple-500/10 before:via-pink-500/10 before:to-blue-500/10
+                           before:opacity-0 before:transition-opacity before:duration-500
+                           hover:before:opacity-100 focus:before:opacity-100"
               >
-                <div className="py-16 relative z-10">
-                  <h1 className="flex items-center justify-center text-4xl text-[#14b8a6] 
-                    transition-all duration-500 ease-out
-                    group-hover:scale-110 group-hover:rotate-6 group-hover:drop-shadow-[0_0_8px_rgba(20,184,166,0.5)]
-                    group-focus:scale-110 group-focus:rotate-6 group-focus:drop-shadow-[0_0_8px_rgba(20,184,166,0.5)]">
-                    {feature.icon}
-                  </h1>
-
-                  <h1 className="text-center text-2xl font-bold py-3 px-4 bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text
-                    transition-all duration-300
-                    group-hover:from-purple-700 group-hover:to-pink-600
-                    group-focus:from-purple-700 group-focus:to-pink-600">
-                    {feature.heading}
-                  </h1>
-
-                  <p className="text-gray-600 text-center px-6 
-                    transition-all duration-300
-                    group-hover:text-gray-800 group-focus:text-gray-800">
-                    {feature.desc}
-                  </p>
+                {/* Animated Background Circles */}
+                <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden">
+                  <div className="absolute -top-10 -left-10 w-32 h-32 bg-gradient-to-br from-purple-400/30 to-transparent rounded-full blur-2xl animate-[pulse_3s_ease-in-out_infinite]"></div>
+                  <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-gradient-to-tl from-pink-400/30 to-transparent rounded-full blur-2xl animate-[pulse_3s_ease-in-out_infinite_1s]"></div>
                 </div>
-                
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-purple-400/20 to-transparent rounded-full blur-xl 
-                    animate-[pulse_3s_ease-in-out_infinite]"></div>
-                  <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-pink-400/20 to-transparent rounded-full blur-xl 
-                    animate-[pulse_3s_ease-in-out_infinite_0.5s]"></div>
+
+                {/* Icon */}
+                <div className="relative z-10 mb-3 sm:mb-4 text-4xl sm:text-5xl lg:text-6xl 
+                                transition-all duration-500 ease-out
+                                group-hover:scale-125 group-hover:rotate-12 
+                                group-focus:scale-125 group-focus:rotate-12
+                                drop-shadow-[0_4px_10px_rgba(147,51,234,0.3)]">
+                  {feature.icon}
+                </div>
+
+                {/* Heading */}
+                <h2 className="relative z-10 text-center text-base sm:text-lg lg:text-xl font-extrabold mb-2 
+                               bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 
+                               text-transparent bg-clip-text
+                               transition-all duration-300
+                               group-hover:from-purple-700 group-hover:via-pink-600 group-hover:to-blue-700
+                               group-focus:from-purple-700 group-focus:via-pink-600 group-focus:to-blue-700
+                               px-2 font-['Poppins',sans-serif] tracking-tight">
+                  {feature.heading}
+                </h2>
+
+                {/* Description */}
+                <p className="relative z-10 text-center text-xs sm:text-sm text-gray-600 leading-relaxed
+                              transition-all duration-300
+                              group-hover:text-gray-800 group-focus:text-gray-800
+                              px-2 font-['Inter',sans-serif]">
+                  {feature.desc}
+                </p>
+
+                {/* Rotating Border Effect */}
+                <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 rounded-full border-2 border-dashed border-purple-400 animate-[spin_8s_linear_infinite]"></div>
                 </div>
               </div>
             </motion.div>
-          ))}
-        </motion.div>
+          );
+          })}
+        </div>
       </div>
     </motion.div>
   );

@@ -4,6 +4,8 @@ import fiverr from '../images/fiverr.jpg';
 import Developershub from '../images/developershub.jpg';
 
 const Experience = () => {
+  const aosAnimations = ['fade-right', 'fade-left', 'fade-up'];
+  
   const experiences = [
     {
       img: CodeCelix,
@@ -34,6 +36,9 @@ const Experience = () => {
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
+            data-aos={aosAnimations[index % aosAnimations.length]}
+            data-aos-duration="1000"
+            data-aos-delay={index * 150}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.03 }}

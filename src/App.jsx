@@ -1,5 +1,7 @@
- import React from 'react';
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Components
 import NAV from './components/NAV';
@@ -17,9 +19,18 @@ import ScrollToTop from './components/ScrollToTop';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './index.css'; // Make sure scroll-smooth is applied globally
+import './index.css';
 
 const App = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: false,
+      mirror: true,
+    });
+  }, []);
+
   return (
     <div className="flex flex-col md:flex-row overflow-x-hidden scroll-smooth">
       {/* Navbar */}

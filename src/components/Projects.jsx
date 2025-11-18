@@ -71,7 +71,6 @@ const projectsData = [
     url: "https://rehmatvisions.github.io/codealpha_tasks-portfolio/",
     github: "https://github.com/rehmatvisions/codealpha_tasks-portfolio"
   },
- ,
   {
     id: 9,
     img: asia,
@@ -125,16 +124,39 @@ const projectsData = [
 ];
 
 const Projects = () => {
+  const aosAnimations = [
+    'flip-left',
+    'flip-right',
+    'flip-up',
+    'zoom-in-up',
+    'zoom-in-down',
+    'zoom-in',
+    'slide-up',
+    'slide-down',
+    'slide-left',
+    'slide-right',
+    'flip-down'
+  ];
+
   return (
     <div className='my-10 bg-white text-gray-900'>
-      <div className='py-8 mb-12'>
+      <div 
+        className='py-8 mb-12' 
+        data-aos="zoom-in-up" 
+        data-aos-duration="1200"
+        data-aos-easing="ease-in-out">
         <Heading sub="Visit my project and keep your feedback" title="My.Projects" />
       </div>
 
       <div className='flex flex-wrap justify-center gap-8 px-4 pb-10'>
-        {projectsData.map((project) => (
+        {projectsData.map((project, index) => (
           <div
             key={project.id}
+            data-aos={aosAnimations[index % aosAnimations.length]}
+            data-aos-duration="1000"
+            data-aos-delay={index * 120}
+            data-aos-easing="ease-in-out-cubic"
+            data-aos-offset="100"
             tabIndex={0}
             className="relative w-full max-w-sm bg-white rounded-2xl overflow-hidden
                        shadow-md transition-all duration-300
@@ -166,15 +188,18 @@ const Projects = () => {
               </div>
 
               {project.no && (
-                <span className="inline-block text-xs px-3 py-1 rounded-full 
-                                 bg-gray-200 text-gray-800 font-semibold w-fit
-                                 transition-all duration-300
-                                 hover:bg-white hover:text-blue-500">
+                <span 
+                  className="inline-block text-xs px-3 py-1 rounded-full 
+                             bg-gray-200 text-gray-800 font-semibold w-fit
+                             transition-all duration-300
+                             hover:bg-white hover:text-blue-500">
                   {project.no} <span className="animate-pulse">♥</span>
                 </span>
               )}
 
-              <p className="text-sm leading-relaxed">{project.desc}</p>
+              <p className="text-sm leading-relaxed">
+                {project.desc}
+              </p>
 
               <div className="flex gap-3 mt-2">
                 <a

@@ -23,28 +23,14 @@ const ResumeSkills = () => {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, rotateY: -8 }}
-      whileInView={{ opacity: 1, rotateY: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      viewport={{ once: true, amount: 0.2 }}
-      className="py-16 px-4"
-    >
-      <motion.div
-        className="flex flex-wrap justify-center gap-9 transform-gpu"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={{ hidden: { opacity: 1 }, show: { opacity: 1, transition: { staggerChildren: 0.1 } } }}
-      >
+    <div className="py-16 px-4">
+      <div className="flex flex-wrap justify-center gap-9">
         {skills.map((skillData, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, scale: 0.9, y: 16 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            viewport={{ once: true, amount: 0.25 }}
-            variants={{ hidden: { opacity: 0, y: 50 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } } }}
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+            data-aos-delay={index * 100}
           >
             <div
               tabIndex={0}
@@ -62,10 +48,10 @@ const ResumeSkills = () => {
                 {skillData.skill}
               </h2>
             </div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 
