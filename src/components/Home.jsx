@@ -17,9 +17,9 @@ const Home = () => {
           
           <HeroSec />
              <Resume />
+             <Projects /> 
            <Feautures /> 
        
-             <Projects /> 
               
                  {/* <ResumeSkills />  */}
               <Testimonials /> 
