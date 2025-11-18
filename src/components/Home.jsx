@@ -1,4 +1,3 @@
-import React from 'react'
 import HeroSec from './HeroSec'
 import Feautures from './Feautures'
 import Projects from './Projects'
