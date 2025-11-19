@@ -16,6 +16,7 @@ import Certification from './components/Certification';
 import Home from './components/Home';
 import Chatbot from './components/Chatbot';
 import ScrollToTop from './components/ScrollToTop';
+import ChatbotWidget from './components/ChatbotWidget';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -56,6 +57,11 @@ const App = () => {
           <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
       </div>
+
+      {/* Floating Chatbot Widget */}
+     
+        <ChatbotWidget />
+      
     </div>
   );
 };
