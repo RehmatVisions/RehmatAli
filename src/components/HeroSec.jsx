@@ -150,14 +150,14 @@ const HeroSec = () => {
           tabIndex={0}
         >
           <motion.div
-            className="relative w-full h-full cursor-pointer"
+            className="relative w-full h-full mb-34 cursor-pointer"
             whileHover={{ scale: 1.08 }}
           >
             <motion.img
               src={hero}
               alt="Rehmat Ali"
               loading="eager"
-              className="w-full h-full object-cover rounded-full border-4 mb-12 border-[#9A48D0] shadow-[0_10px_25px_rgba(0,0,0,0.2)]"
+              className="w-full h-full object-cover rounded-full border-4  border-[#9A48D0] shadow-[0_10px_25px_rgba(0,0,0,0.2)]"
               animate={{
                 rotateX: [0, 2, -2, 0],
                 rotateY: [0, 2, -2, 0],

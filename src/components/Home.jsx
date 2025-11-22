@@ -29,7 +29,7 @@ const Home = () => {
                  <Footer/>
      <Link
         to="/chatbot"
-        className="fixed bottom-4 right-4 group outline-none
+        className="fixed top-4 right-4 group outline-none
                    h-[68px] w-[68px] rounded-xl flex items-center justify-center
                    bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500
                    shadow-lg shadow-gray-500/20
