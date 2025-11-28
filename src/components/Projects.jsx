@@ -10,6 +10,7 @@ import Medtracker from '../images/MedTracker.jpg';
 import graphic from '../images/Graphic.png';
 import asia from '../images/asia.png';
 import interview from '../images/interview.png';
+import DevEcomece from '../images/DevEcomerce.png';
 const projectsData = [
   {
     id: 1,
@@ -80,6 +81,16 @@ const projectsData = [
     no: "",
     url: "https://asia-electronics.vercel.app/",
     github: "https://github.com/rehmatvisions/vibecoding-ecommerce-frontend"
+  },
+  {
+    id: 12,
+    img: DevEcomece,
+    title: "FULLSTACK E-COMMERCE PLATFORM",
+    company: "DevelopersHubCorp",
+    desc: "Built a responsive eCommerce web app with React.js, Node.js, Express, and MongoDB. Features include: Admin panel (CRUD), dynamic cart management, and full backend integration.",
+    no: "",
+    url: "https://ecommerc-frontend-ten.vercel.app/",
+    github: "https://github.com/RehmatVisions/ecommerce-fullstack-design.git"
   },
   {
     id: 10,
