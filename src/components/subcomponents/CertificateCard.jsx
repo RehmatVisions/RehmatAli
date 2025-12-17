@@ -11,8 +11,8 @@ const CertificateCard = ({
   const isCompleted = !!certificateCode;
 
   return (
-    <div className="bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden hover:transform hover:-translate-y-2">
-      <div className="flex flex-col sm:flex-row min-h-[320px]">
+    <div className="group bg-white rounded-xl sm:rounded-2xl shadow-md hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 overflow-hidden hover:transform hover:-translate-y-3 hover:bg-gradient-to-br hover:from-purple-50 hover:to-pink-50">
+      <div className="flex flex-col sm:flex-row min-h-[280px] sm:min-h-[320px]">
         
         {/* Image Section */}
         <div 
@@ -22,7 +22,7 @@ const CertificateCard = ({
           data-aos-delay="200"
           data-aos-once="true"
         >
-          <div className="relative h-56 sm:h-full overflow-hidden">
+          <div className="relative h-48 sm:h-full overflow-hidden">
             <img
               src={img}
               alt={title}
@@ -31,13 +31,13 @@ const CertificateCard = ({
             
             {/* Status Badge */}
             <div 
-              className="absolute top-4 right-4"
+              className="absolute top-3 right-3"
               data-aos="zoom-in"
               data-aos-duration="400"
               data-aos-delay="600"
               data-aos-once="true"
             >
-              <span className={`px-3 py-1.5 rounded-full text-xs font-semibold text-white transition-all duration-300 hover:scale-110 ${
+              <span className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-semibold text-white transition-all duration-300 hover:scale-110 ${
                 isCompleted ? 'bg-green-500 hover:bg-green-600' : 'bg-orange-500 hover:bg-orange-600'
               }`}>
                 {isCompleted ? 'Certified' : 'In Progress'}
@@ -48,13 +48,13 @@ const CertificateCard = ({
 
         {/* Content Section */}
         <div 
-          className="flex-1 p-8 flex flex-col justify-between"
+          className="flex-1 p-4 sm:p-8 flex flex-col justify-between"
           data-aos="fade-left"
           data-aos-duration="600"
           data-aos-delay="300"
           data-aos-once="true"
         >
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {/* Title & Subtitle */}
             <div
               data-aos="fade-up"
@@ -62,18 +62,18 @@ const CertificateCard = ({
               data-aos-delay="400"
               data-aos-once="true"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors duration-300">
+              <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-purple-600 transition-colors duration-300 leading-tight">
                 {title}
               </h3>
               {subtitle && (
-                <p className="text-lg text-gray-600 font-medium">{subtitle}</p>
+                <p className="text-sm sm:text-lg text-gray-600 font-medium leading-tight group-hover:text-purple-500">{subtitle}</p>
               )}
             </div>
 
             {/* Date */}
             {date && (
               <div 
-                className="inline-flex items-center px-3 py-1.5 bg-gray-100 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors duration-300"
+                className="inline-flex items-center px-2 sm:px-3 py-1 sm:py-1.5 bg-gray-100 rounded-lg text-xs sm:text-sm font-medium text-gray-700 group-hover:bg-purple-100 group-hover:text-purple-700 transition-colors duration-300"
                 data-aos="fade-up"
                 data-aos-duration="500"
                 data-aos-delay="500"
@@ -85,7 +85,7 @@ const CertificateCard = ({
 
             {/* Description */}
             <p 
-              className="text-gray-600 leading-relaxed"
+              className="text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3 sm:line-clamp-none group-hover:text-gray-700 transition-colors duration-300"
               data-aos="fade-up"
               data-aos-duration="500"
               data-aos-delay="600"
@@ -97,7 +97,7 @@ const CertificateCard = ({
 
           {/* Bottom Section */}
           <div 
-            className="space-y-4 mt-6"
+            className="space-y-3 sm:space-y-4 mt-4 sm:mt-6"
             data-aos="fade-up"
             data-aos-duration="500"
             data-aos-delay="700"
@@ -105,32 +105,32 @@ const CertificateCard = ({
           >
             {/* Certificate ID */}
             {certificateCode && (
-              <div className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-colors duration-300">
-                <span className="text-sm text-gray-500 font-mono">
-                  Certificate ID: {certificateCode}
+              <div className="bg-gray-50 rounded-lg p-2 sm:p-3 group-hover:bg-purple-50 transition-colors duration-300">
+                <span className="text-xs sm:text-sm text-gray-500 font-mono group-hover:text-purple-600">
+                  ID: {certificateCode}
                 </span>
               </div>
             )}
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               {link && (
                 <a
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg"
+                  className="flex-1 flex items-center justify-center gap-2 px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-lg font-medium transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 text-sm sm:text-base"
                 >
-                  🔗 View Certificate
+                  🔗 <span className="hidden xs:inline">View Certificate</span><span className="xs:hidden">View</span>
                 </a>
               )}
               
               <a
                 href={img}
                 download={downloadName}
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-medium transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg"
+                className="flex-1 flex items-center justify-center gap-2 px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-purple-600 hover:to-pink-600 text-white rounded-lg font-medium transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 text-sm sm:text-base"
               >
-                📥 Download
+                📥 <span className="hidden xs:inline">Download</span><span className="xs:hidden">Download</span>
               </a>
             </div>
           </div>

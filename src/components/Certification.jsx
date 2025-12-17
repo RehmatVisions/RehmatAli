@@ -59,24 +59,24 @@ const Certification = () => {
   ];
 
   return (
-    <div className="py-16 px-6 max-w-7xl mx-auto">
+    <div className="py-8 sm:py-16 px-4 sm:px-6 max-w-7xl mx-auto">
       {/* Header */}
       <div 
-        className="text-center mb-16"
+        className="text-center mb-8 sm:mb-16"
         data-aos="fade-up"
         data-aos-duration="800"
         data-aos-once="true"
       >
-        <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+        <h2 className="text-2xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
           Professional Certifications
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
           Showcasing my commitment to continuous learning and professional development
         </p>
       </div>
 
       {/* Certificate Cards */}
-      <div className="space-y-8">
+      <div className="space-y-4 sm:space-y-8">
         {certificates.map((cert, index) => (
           <div
             key={index}
