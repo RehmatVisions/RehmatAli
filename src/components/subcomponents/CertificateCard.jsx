@@ -1,41 +1,142 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+const CertificateCard = ({ 
+  img, 
+  title, 
+  subtitle, 
+  description, 
+  date, 
+  certificateCode, 
+  link,
+  downloadName 
+}) => {
+  const isCompleted = !!certificateCode;
 
-const CertificateCard = ({ imageSrc = '/certificate.png', downloadName = 'certificate.jpg', title = 'Certificate' }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 20 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      viewport={{ once: true, amount: 0.2 }}
-      whileHover={{ scale: 1.015 }}
-      className="max-w-sm w-full rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 text-gray-800 shadow-[2px_2px_12px_#e9d5ff33,-2px_-2px_12px_#f5d0fe33] overflow-hidden"
-    >
-      <div className="p-4 sm:p-6">
-        <div className="rounded-2xl overflow-hidden shadow-[inset_2px_2px_8px_#ffffff26,inset_-2px_-2px_8px_#00000014]">
-          <img
-            src={imageSrc}
-            alt={title}
-            className="w-full h-56 sm:h-64 object-cover"
-            loading="lazy"
-            decoding="async"
-          />
+    <div className="bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden hover:transform hover:-translate-y-2">
+      <div className="flex flex-col sm:flex-row min-h-[320px]">
+        
+        {/* Image Section */}
+        <div 
+          className="relative w-full sm:w-96 bg-gray-50"
+          data-aos="fade-right"
+          data-aos-duration="600"
+          data-aos-delay="200"
+          data-aos-once="true"
+        >
+          <div className="relative h-56 sm:h-full overflow-hidden">
+            <img
+              src={img}
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            />
+            
+            {/* Status Badge */}
+            <div 
+              className="absolute top-4 right-4"
+              data-aos="zoom-in"
+              data-aos-duration="400"
+              data-aos-delay="600"
+              data-aos-once="true"
+            >
+              <span className={`px-3 py-1.5 rounded-full text-xs font-semibold text-white transition-all duration-300 hover:scale-110 ${
+                isCompleted ? 'bg-green-500 hover:bg-green-600' : 'bg-orange-500 hover:bg-orange-600'
+              }`}>
+                {isCompleted ? 'Certified' : 'In Progress'}
+              </span>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-5 flex items-center justify-between">
-          <h3 className="text-base sm:text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text">
-            {title}
-          </h3>
-          <a
-            href={imageSrc}
-            download={downloadName}
-            className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium shadow-md transition-transform duration-300 hover:scale-105 focus:scale-105 focus:outline-none cursor-pointer"
+        {/* Content Section */}
+        <div 
+          className="flex-1 p-8 flex flex-col justify-between"
+          data-aos="fade-left"
+          data-aos-duration="600"
+          data-aos-delay="300"
+          data-aos-once="true"
+        >
+          <div className="space-y-4">
+            {/* Title & Subtitle */}
+            <div
+              data-aos="fade-up"
+              data-aos-duration="500"
+              data-aos-delay="400"
+              data-aos-once="true"
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors duration-300">
+                {title}
+              </h3>
+              {subtitle && (
+                <p className="text-lg text-gray-600 font-medium">{subtitle}</p>
+              )}
+            </div>
+
+            {/* Date */}
+            {date && (
+              <div 
+                className="inline-flex items-center px-3 py-1.5 bg-gray-100 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors duration-300"
+                data-aos="fade-up"
+                data-aos-duration="500"
+                data-aos-delay="500"
+                data-aos-once="true"
+              >
+                📅 {date}
+              </div>
+            )}
+
+            {/* Description */}
+            <p 
+              className="text-gray-600 leading-relaxed"
+              data-aos="fade-up"
+              data-aos-duration="500"
+              data-aos-delay="600"
+              data-aos-once="true"
+            >
+              {description}
+            </p>
+          </div>
+
+          {/* Bottom Section */}
+          <div 
+            className="space-y-4 mt-6"
+            data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-delay="700"
+            data-aos-once="true"
           >
-            Download
-          </a>
+            {/* Certificate ID */}
+            {certificateCode && (
+              <div className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-colors duration-300">
+                <span className="text-sm text-gray-500 font-mono">
+                  Certificate ID: {certificateCode}
+                </span>
+              </div>
+            )}
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              {link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg"
+                >
+                  🔗 View Certificate
+                </a>
+              )}
+              
+              <a
+                href={img}
+                download={downloadName}
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-medium transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg"
+              >
+                📥 Download
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
