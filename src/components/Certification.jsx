@@ -6,6 +6,8 @@ import rehmatGenAI from '../images/rehmatGenAI.png';
 import eduGemini from '../images/eduGemini.png';
 import automation from '../images/automation.png';
 import navttac from '../images/nsis.png';
+import webAI from '../images/webAI.png';
+import prompt from '../images/prompt.png';
 
 const Certification = () => {
   // Certificate data
@@ -28,6 +30,26 @@ const Certification = () => {
       certificateCode: "9600701",
       link: "https://simpli-web.app.link/e/U5GEIcKmbZb",
       downloadName: "google-cloud-generative-ai-certificate.png"
+    },
+    {
+      img: webAI,
+      title: "Simplilearn - Web AI Development",
+      subtitle: "Artificial Intelligence for Web Development",
+      description: "Successfully completed Web AI Development course from Simplilearn and built several projects using Cursor AI and Kiro AI tools to create intelligent websites with AI-powered features.",
+      date: "December 2025",
+      certificateCode: "9617199",
+      link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiI0ODcyIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvOTYxNzE5OV85ODgxMzE1MTc2NjMwNzU5NTg1My5wbmciLCJ1c2VybmFtZSI6IlJlaG1hdCBBbGkifQ&utm_source=shared-certificate&utm_medium=app_lms&utm_campaign=shared-certificate-promotion",
+      downloadName: "simplilearn-web-ai-certificate.png"
+    },
+    {
+      img: prompt,
+      title: "Simplilearn - Prompt Engineering",
+      subtitle: "Advanced Prompt Engineering Techniques",
+      description: "Mastered advanced prompt engineering techniques for AI systems, including prompt optimization, chain-of-thought reasoning, and effective AI communication strategies.",
+      date: "December 2025",
+      certificateCode: "9625225",
+      link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiI0MjgzIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvOTYyNTIyNV85ODg1MDEwXzE3NjY0MzQwNzczNjYucG5nIiwidXNlcm5hbWUiOiJSZWhtYXQgQWxpIn0&utm_source=shared-certificate&utm_medium=app_lms&utm_campaign=shared-certificate-promotion",
+      downloadName: "simplilearn-prompt-engineering-certificate.png"
     },
     {
       img: eduGemini,

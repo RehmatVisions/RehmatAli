@@ -11,6 +11,7 @@ import graphic from '../images/Graphic.png';
 import asia from '../images/asia.png';
 import interview from '../images/interview.png';
 import DevEcomece from '../images/DevEcomerce.png';
+import codecelixAI from '../images/codecelixAIpng.png';
 const projectsData = [
   {
     id: 1,
@@ -112,7 +113,17 @@ const projectsData = [
     url: "https://rehmatvisions.github.io/interview-questions-nextjs/",
     github: "https://github.com/rehmatvisions/interview-questions-nextjs"
   },
-   {
+  {
+    id: 13,
+    img: codecelixAI,
+    title: "AI BUSINESS AUTOMATION PLATFORM",
+    company: "CodeCelix (Team Leader)",
+    desc: "Led a collaborative team to build a responsive business automation frontend using React.js and modern UI components. Focused on clean design, smooth animations, and professional business presentation with team collaboration at CodeCelix.",
+    no: "2.1K",
+    url: "https://codecelix-ai-business-automation-we.vercel.app/",
+    github: "https://github.com/codecelix/ai-business-automation"
+  },
+  {
     id: 7,
     img: Medtracker,
     title: "MEDICATION REMINDER APP",
