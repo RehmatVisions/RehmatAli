@@ -4,7 +4,6 @@ import ResumeEducation from './ResumeEducation';
 import ResumeSkills from './ResumeSkills';
 import Experience from './Experience';
 import Certification from './Certification';
-import InterestsLearning from './InterestsLearning';
 
 const Resume = () => {
   const [activeTab, setActiveTab] = useState('education');
@@ -42,9 +41,6 @@ const Resume = () => {
         <button onClick={() => setActiveTab('certifications')} className={getButtonStyle('certifications')}>
           CERTIFICATIONS
         </button>
-        <button onClick={() => setActiveTab('interests')} className={getButtonStyle('interests')}>
-          INTERESTS & LEARNING
-        </button>
       </div>
 
       {/* Tab Content */}
@@ -53,7 +49,6 @@ const Resume = () => {
         {activeTab === 'skills' && <ResumeSkills />}
         {activeTab === 'certifications' && <Certification />}
         {activeTab === 'experience' && <Experience />}
-        {activeTab === 'interests' && <InterestsLearning />}
       </div>
     </div>
   );
