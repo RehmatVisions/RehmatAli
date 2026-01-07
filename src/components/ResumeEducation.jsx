@@ -77,7 +77,7 @@ const ResumeEducation = () => {
         ))}
       </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-10">
-  <a href='/Rehmat_Ali_Resume.pdf' download className="py-3 px-6 sm:px-10 text-sm sm:text-base font-semibold text-pink-600 
+  <a href='/REHMATALI.pdf' download className="py-3 px-6 sm:px-10 text-sm sm:text-base font-semibold text-pink-600 
                      bg-gradient-to-br from-purple-300 via-purple-200 to-pink-200 
                      rounded-lg shadow-md transition hover:scale-105 cursor-pointer flex items-center justify-around">
     DOWNLOAD CV   <svg
