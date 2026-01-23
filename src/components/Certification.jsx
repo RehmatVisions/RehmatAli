@@ -10,8 +10,8 @@ import webAI from '../images/webAI.png';
 import prompt from '../images/prompt.png';
 
 const Certification = () => {
-  // Certificate data
-  const certificates = [
+  // Learning Achievement Certificates
+  const learningCertificates = [
     {
       img: zaff,
       title: "Zaff Institute - MERN Stack",
@@ -82,34 +82,36 @@ const Certification = () => {
 
   return (
     <div className="py-8 sm:py-16 px-4 sm:px-6 max-w-7xl mx-auto">
-      {/* Header */}
+      {/* Main Header */}
       <div 
-        className="text-center mb-8 sm:mb-16"
+        className="text-center mb-12 sm:mb-20"
         data-aos="fade-up"
         data-aos-duration="800"
         data-aos-once="true"
       >
-        <h2 className="text-2xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
-          Professional Certifications
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-          Showcasing my commitment to continuous learning and professional development
+        <h1 className="text-3xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+          Learning Achievements & Certifications
+        </h1>
+        <p className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-lg">
+          Showcasing my commitment to continuous learning and skill development through various courses and training programs
         </p>
       </div>
 
-      {/* Certificate Cards */}
-      <div className="space-y-4 sm:space-y-8">
-        {certificates.map((cert, index) => (
-          <div
-            key={index}
-            data-aos="fade-up"
-            data-aos-duration="800"
-            data-aos-delay={index * 150}
-            data-aos-once="true"
-          >
-            <CertificateCard {...cert} />
-          </div>
-        ))}
+      {/* Learning Achievement Certificates Section */}
+      <div>
+        <div className="space-y-4 sm:space-y-8">
+          {learningCertificates.map((cert, index) => (
+            <div
+              key={index}
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay={index * 150}
+              data-aos-once="true"
+            >
+              <CertificateCard {...cert} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
