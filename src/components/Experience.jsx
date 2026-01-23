@@ -34,48 +34,33 @@ const Experience = () => {
       <div 
         className="text-center mb-8 sm:mb-12 relative z-10"
         data-aos="fade-down"
-        data-aos-duration="1200"
+        data-aos-duration="1000"
         data-aos-easing="ease-out-cubic"
         data-aos-once="true"
-        data-aos-offset="100"
       >
-        <h2 
-          className="text-2xl sm:text-3xl font-bold mb-3 text-gray-800"
-          data-aos="flip-up"
-          data-aos-duration="1000"
-          data-aos-delay="100"
-          data-aos-once="true"
-        >
+        <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-800">
           Professional Experience
         </h2>
         <div 
           className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-4"
           data-aos="zoom-in"
           data-aos-duration="800"
-          data-aos-delay="300"
+          data-aos-delay="200"
           data-aos-once="true"
-          data-aos-easing="ease-out-back"
         ></div>
         <p 
           className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base"
           data-aos="fade-up"
           data-aos-duration="1000"
-          data-aos-delay="500"
+          data-aos-delay="300"
           data-aos-once="true"
-          data-aos-easing="ease-out-quart"
         >
           My professional journey through internships and work experience with certificates
         </p>
       </div>
 
       {/* Experience Certificates */}
-      <div 
-        className="space-y-6 sm:space-y-8 max-w-sm sm:max-w-2xl lg:max-w-5xl mx-auto px-2 sm:px-0 relative z-10"
-        data-aos="fade-up"
-        data-aos-duration="800"
-        data-aos-delay="200"
-        data-aos-once="true"
-      >
+      <div className="space-y-6 sm:space-y-8 max-w-sm sm:max-w-2xl lg:max-w-5xl mx-auto px-2 sm:px-0 relative z-10">
         {experienceCertificates.map((cert, index) => (
           <motion.div
             key={index}
@@ -102,13 +87,12 @@ const Experience = () => {
               }
             }}
             viewport={{ once: true, amount: 0.2 }}
-            data-aos={index % 2 === 0 ? "slide-right" : "slide-left"}
-            data-aos-duration="1400"
-            data-aos-delay={600 + (index * 400)}
+            data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+            data-aos-duration="1200"
+            data-aos-delay={index * 300}
             data-aos-easing="ease-out-back"
             data-aos-once="true"
-            data-aos-anchor-placement="center-bottom"
-            data-aos-offset="50"
+            data-aos-anchor-placement="top-bottom"
           >
             <ExperienceCertificateCard {...cert} />
           </motion.div>
@@ -119,10 +103,6 @@ const Experience = () => {
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute top-20 left-10 w-4 h-4 bg-blue-400 rounded-full opacity-20"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-delay="800"
-          data-aos-once="true"
           animate={{
             y: [0, -20, 0],
             x: [0, 10, 0],
@@ -136,10 +116,6 @@ const Experience = () => {
         />
         <motion.div
           className="absolute top-40 right-20 w-6 h-6 bg-green-400 rounded-full opacity-15"
-          data-aos="fade-left"
-          data-aos-duration="1200"
-          data-aos-delay="1000"
-          data-aos-once="true"
           animate={{
             y: [0, 15, 0],
             x: [0, -15, 0],
@@ -154,10 +130,6 @@ const Experience = () => {
         />
         <motion.div
           className="absolute bottom-20 left-1/4 w-3 h-3 bg-purple-400 rounded-full opacity-25"
-          data-aos="flip-left"
-          data-aos-duration="1000"
-          data-aos-delay="1200"
-          data-aos-once="true"
           animate={{
             y: [0, -25, 0],
             x: [0, 20, 0],
@@ -168,45 +140,6 @@ const Experience = () => {
             repeat: Infinity,
             ease: "easeInOut",
             delay: 2
-          }}
-        />
-        
-        {/* Additional Floating Elements */}
-        <motion.div
-          className="absolute top-60 right-10 w-2 h-2 bg-yellow-400 rounded-full opacity-30"
-          data-aos="bounce-in"
-          data-aos-duration="800"
-          data-aos-delay="1400"
-          data-aos-once="true"
-          animate={{
-            y: [0, -15, 0],
-            scale: [1, 1.5, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5
-          }}
-        />
-        
-        <motion.div
-          className="absolute bottom-40 right-1/3 w-5 h-5 bg-pink-400 rounded-full opacity-20"
-          data-aos="slide-up"
-          data-aos-duration="1000"
-          data-aos-delay="1600"
-          data-aos-once="true"
-          animate={{
-            y: [0, 20, 0],
-            x: [0, -10, 0],
-            scale: [1, 0.7, 1],
-          }}
-          transition={{
-            duration: 4.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1.5
           }}
         />
       </div>
