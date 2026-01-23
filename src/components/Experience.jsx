@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify';
+import { FiDownload } from 'react-icons/fi';
 import ExperienceCertificateCard from './subcomponents/ExperienceCertificateCard';
 
 const Experience = () => {
@@ -13,7 +15,8 @@ const Experience = () => {
       description: "Successfully completed 3-month internship focusing on full-stack web development. Built multiple frontend projects including weather apps, CRUD systems, shopping cart clones, and portfolio websites. Mastered React fundamentals, responsive UI with Tailwind CSS, and API integration.",
       certificateCode: "CC2024",
       type: "Internship Completed",
-      status: "Completed"
+      status: "Completed",
+      downloadName: "CodeCelix-Certificate-2024.jpg"
     },
     {
       img: "/devhub.jpg",
@@ -24,39 +27,90 @@ const Experience = () => {
       description: "Successfully completed 3-month comprehensive hands-on projects to strengthen full-stack development skills. Worked on real-life scenarios including user authentication, state management, responsive layouts, and API consumption.",
       certificateCode: "DH2024",
       type: "Professional Internship Completed",
-      status: "Completed"
+      status: "Completed",
+      downloadName: "DevelopersHub-Certificate-2024.jpg"
     }
   ];
+
+  // Download all certificates function
+  const downloadAllCertificates = async () => {
+    try {
+      toast.info('🚀 Starting download of all certificates...', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+
+      for (let i = 0; i < experienceCertificates.length; i++) {
+        const cert = experienceCertificates[i];
+        
+        // Add delay between downloads
+        if (i > 0) {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+
+        const link = document.createElement('a');
+        link.href = cert.img;
+        link.download = cert.downloadName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        toast.success(`✅ ${cert.company} certificate downloaded!`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      }
+
+      toast.success('🎉 All certificates downloaded successfully!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } catch (error) {
+      toast.error('❌ Error downloading certificates. Please try again.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
+  };
 
   return (
     <div className="relative py-8 sm:py-16 px-4 sm:px-6 max-w-7xl mx-auto overflow-hidden">
       {/* Header */}
-      <div 
-        className="text-center mb-8 sm:mb-12 relative z-10"
-        data-aos="fade-down"
-        data-aos-duration="1000"
-        data-aos-easing="ease-out-cubic"
-        data-aos-once="true"
-      >
+      <div className="text-center mb-8 sm:mb-12 relative z-10">
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-800">
           Professional Experience
         </h2>
-        <div 
-          className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-4"
-          data-aos="zoom-in"
-          data-aos-duration="800"
-          data-aos-delay="200"
-          data-aos-once="true"
-        ></div>
-        <p 
-          className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-delay="300"
-          data-aos-once="true"
-        >
+        <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-4"></div>
+        <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base mb-6">
           My professional journey through internships and work experience with certificates
         </p>
+        
+        {/* Download All Button */}
+        <motion.button
+          onClick={downloadAllCertificates}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          <FiDownload className="w-4 h-4" />
+          <span>Download All Certificates</span>
+        </motion.button>
       </div>
 
       {/* Experience Certificates */}
@@ -87,12 +141,6 @@ const Experience = () => {
               }
             }}
             viewport={{ once: true, amount: 0.2 }}
-            data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-            data-aos-duration="1200"
-            data-aos-delay={index * 300}
-            data-aos-easing="ease-out-back"
-            data-aos-once="true"
-            data-aos-anchor-placement="top-bottom"
           >
             <ExperienceCertificateCard {...cert} />
           </motion.div>
