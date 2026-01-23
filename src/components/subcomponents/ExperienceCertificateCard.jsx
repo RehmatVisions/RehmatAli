@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify';
 import { FiDownload, FiExternalLink, FiCalendar, FiMapPin } from 'react-icons/fi';
 
 const ExperienceCertificateCard = ({
@@ -14,18 +15,67 @@ const ExperienceCertificateCard = ({
   downloadName
 }) => {
   const handleDownload = () => {
-    if (downloadName) {
-      const link = document.createElement('a');
-      link.href = img;
-      link.download = downloadName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+    try {
+      if (downloadName) {
+        const link = document.createElement('a');
+        link.href = img;
+        link.download = downloadName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Show success toast
+        toast.success(`🎉 ${company} certificate downloaded successfully!`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      } else {
+        toast.error('❌ Download name not specified for this certificate.', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      }
+    } catch (error) {
+      toast.error('❌ Failed to download certificate. Please try again.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     }
   };
 
   const handleView = () => {
-    window.open(img, '_blank');
+    try {
+      window.open(img, '_blank');
+      toast.info(`👀 Opening ${company} certificate in new tab...`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } catch (error) {
+      toast.error('❌ Failed to open certificate. Please try again.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
   };
 
   return (
